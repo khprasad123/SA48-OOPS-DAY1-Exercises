@@ -67,20 +67,25 @@ namespace OOPS
 
         }
 
-        public int toBinary()
+        public string toBinary()
         {
             int dec = int.Parse(toDecimal().ToString());
             int value = dec;
-            int rem = 0,output=0;
+            int rem = 0;
+            string output="";
 
             while (value != 0)
             {
-                output *= 10;
-                rem = value % 2;
+                rem = value % 2; 
                 value = value / 2;
                 output += rem;
             }
-            return output;
+            string OUT = "";
+            for(int i = output.Length - 1; i >= 0; i--)
+            {
+                OUT += output[i];
+            }
+            return OUT;
         }
     }
 }
