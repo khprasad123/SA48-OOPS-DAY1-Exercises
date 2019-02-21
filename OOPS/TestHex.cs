@@ -20,7 +20,8 @@ namespace OOPS
 
             Console.WriteLine(h1.toDecimal());
 
-            Console.WriteLine(h1.toBinary());
+             Console.WriteLine(h1.toBinary());
+            Console.WriteLine(h1.getNum());
         }
     }
 }

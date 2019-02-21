@@ -8,6 +8,25 @@ namespace OOPS
     /// <summary>
     /// TESTING CLASS NAME IS TEST HEX
     /// </summary>
+    public class HEX_Value   ///TEMPORARY CLASS TI HOLD THE ARRAY H --FOR  GETTING THE DECIMAL VALUE OF HEX
+    {
+        char[] HEX = new char[] { 'A', 'B', 'C', 'D', 'E', 'F' };  //this can be written in seperate files----here also possible
+        public int getIndex(char s) 
+        {
+            int i = 0;
+            while (i != HEX.Length)
+            {
+                if (HEX[i] == s)
+                    return (i + 10);
+                i++;
+            }
+            return -1;
+        }
+    }
+
+    /// <summary>
+    /// //////////ORIGINAL CLASS STARTS BELOW
+    /// </summary>
     class Hex
     {
         string value;
@@ -32,34 +51,22 @@ namespace OOPS
                 }
                 else
                 {
-                    int k = 10;
-                    switch (temp[i].ToString())
+                    HEX_Value h = new HEX_Value();
+                    int index = h.getIndex(temp[i]);
+                    if(index!=-1)
+                      dec += (index * Math.Pow(16, j++));
+                    else
                     {
-                        case "A": dec += (10 * Math.Pow(16, j++));  
-                                    break;
-                        case "B":
-                            dec += (11 * Math.Pow(16, j++));
-                            break;
-                        case "C":
-                            dec += (12 * Math.Pow(16, j++));
-                            break;
-                        case "D":
-                            dec += (13 * Math.Pow(16, j++));
-                            break;
-                        case "E":
-                            dec += (14 * Math.Pow(16, j++));
-                            break;
-                        case "F":
-                            dec += (15 * Math.Pow(16, j++));
-                            break;
+                        Console.WriteLine("The Number Is not a Valid Hex Number");
+                        return 0;
                     }
                 }
             }
             int t = int.Parse(dec.ToString());
-
             return t;
 
         }
+
         public int toBinary()
         {
             int dec = int.Parse(toDecimal().ToString());
@@ -68,13 +75,11 @@ namespace OOPS
 
             while (value != 0)
             {
-                output *= 10;//0//10//110//1110
-                rem = value % 2;//1//1//1//0
-                value = value / 2;//11//5//2//0
-                output += rem;//1//11//111//1110
+                output *= 10;
+                rem = value % 2;
+                value = value / 2;
+                output += rem;
             }
-            
-            
             return output;
         }
     }
