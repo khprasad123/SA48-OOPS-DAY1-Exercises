@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOPS
 {
-    class Program
+    class TestDice
     {
         static void Main(string[] args)
         {

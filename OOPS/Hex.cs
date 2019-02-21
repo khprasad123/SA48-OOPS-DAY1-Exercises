@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 namespace OOPS
 {
-    
+    /// <summary>
+    /// TESTING CLASS NAME IS TEST HEX
+    /// </summary>
     class Hex
     {
         string value;
